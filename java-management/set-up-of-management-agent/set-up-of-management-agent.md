@@ -56,24 +56,24 @@ This task is for the installation of Management Agent in an OCI Host(OCI Compute
 
   ![image of jms policy](images/save-jms-policy.png)
 
-**Download installation script**
+**Download agent installer software**
 
-1. To Download installation script, in the Oracle Cloud Console, open the navigation menu and click **Observability & Management**, and then click **Fleets** under **Java Management**.
+1. To Download agent installer software, in the Oracle Cloud Console, open the navigation menu and click **Observability & Management**, and then click **Fleets** under **Java Management**.
 
 ![image of navigate to jms-console](images/console-navigation-jms.png)
 
 2. Select the Fleet created in [Lab 3](?lab=setup-a-fleet).
-3. Click **configure managed instances**
+3. Click **Download Agent Installer**
 
-![image of clicking configuration](images/click-configuration.png)
+![image of clicking configuration](images/DownloadAgentInstaller.png)
 
 4. Scroll down and select an appropriate version of the **installation script** according to the operating system on your instance(s).
 
-![image of installation script](images/select-install-management-agent-oci.png)
+![image of installation script](images/SelectAgentInstaller.png)
 
 5. Click **Close**
 
-![image of click close](images/click-close.png)
+![image of click close](images/AgentInstaller_close.png)
 
 **On Linux (on OCI)**
 
@@ -146,27 +146,26 @@ This task is for the installation of Management Agent in a non-OCI host(e.g. on-
 
 >**Note:** Ensure that you have installed the latest Oracle JDK 8 on your machine before you proceed according to [Lab 4 Task 3](?lab=create-a-java-application#Task3:InstallJava8andcreateasimpleJavaapplication). Management Agents require Oracle JDK 8 to be installed.
 
-**Download management agent software and installation script**
+**Download agent installer software**
 
-1. To Download installation script, in the Oracle Cloud Console,   
+1. To Download agent installer software, in the Oracle Cloud Console,   
    open the navigation menu and click **Observability & Management**, and then click **Fleets** under **Java Management**.
 
 ![image of navigate to jms-console](images/console-navigation-jms.png)
 
 2. Select the Fleet created in [Lab 3](?lab=setup-a-fleet).
-3. Click **configure managed instances**
+3. Click **Download Agent Installer**
 
-![image of clicking configuration](images/click-configuration.png)
+![image of clicking configuration](images/DownloadAgentInstaller.png)
 
-4. Select an appropriate version of the **management agent software** and **installation script** according to the operating system on your instance(s).
+4. Select an appropriate version of the **Agent Installer** according to the operating system on your instance(s).
 
-![image of installation script](images/select-install-management-agent-non-oci.png)
+![image of installation script](images/SelectAgentInstaller.png)
 
-![image of installation script](images/select-install-management-agent-oci.png)
 
 5. Click **Close**
 
-![image of click close](images/click-close.png)
+![image of click close](images/AgentInstaller_close.png)
 
 **On Linux (Non-OCI Host)**
 
