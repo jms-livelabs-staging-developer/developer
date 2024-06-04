@@ -67,47 +67,54 @@ This task is for the installation of Management Agent in an OCI Host(OCI Compute
 
 ![image of clicking configuration](images/DownloadAgentInstaller.png)
 
-4. Scroll down and select an appropriate version of the **installation script** according to the operating system on your instance(s).
+4. Scroll down and select an appropriate version of the **Agent Installer** according to the operating system on your instance(s).
 
 ![image of installation script](images/SelectAgentInstaller.png)
 
-5. Click **Close**
+5. A compressed folder `jms_setup_v*.*.**_****-**_**.tar.gz` and a configuration file `JMS_agent_configuration.rsp`will be downloaded.
+
+6. Click **Close**
 
 ![image of click close](images/AgentInstaller_close.png)
 
 **On Linux (on OCI)**
 
-1. Use the **installation script** for Linux downloaded. Enter the following command to transfer the script to the remote Managed Instance.
+1. Use the downloaded **Agent Installer** `jms_setup_v8.0.46_linux_rhel-x86_64.tar.gz` and **configuration file** `JMS_agent_configuration.rsp` for Linux. Enter the following command to transfer the script to the remote Managed Instance.
 
     ```
     <copy>
-    scp i <path-to-private-key/your-private-key-file> <path-mgmt-agent-software/your-mgmt-agent-software> <username>@<x.x.x.x>:<copy-to-path>
+    scp -r -i <path-to-private-key/your-private-key-file> <path-mgmt-agent-installer/your-mgmt-agent-installer> <path-agent-configuration/JMS_agent_configuration.rsp> <username>@<x.x.x.x>:<copy-to-path>
     </copy>
     ```
 2. Connect to your instance using SSH.
 
-3. Enter the following command to run the installation script. The installation may take some time to complete.
+3. Navigate to the directory containing the agent installer files using the cd command. There is a `README.txt` in the folder. Read the `README.txt` for more details on installing the Managment Agent. 
+
+4. There is a `installJMSAgent.sh` shell script in the folder. Run the shell script using the following command.
 
      ```
      <copy>
-     sudo bash <copy-to-path>/<installation-script-name>.sh
+     sudo ./installJMSAgent.sh
      </copy>
      ```
 
-4. If installation is successful, you'll see a message similar to the following:
+5. If installation is successful, you'll see a message similar to the following:
 
       ```
       ...
-      Oracle Cloud Agent plugin 'Oracle Java Management Service' installation has been completed.
-      Oracle Cloud Agent plugin 'Management Agent' installation has been completed.
-      Management Agent plugin 'Java Usage Tracking' installation has been completed.
-      Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
-      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+      Agent was successfully registered using key name-of-fleet-******-**** (ocid1.managementagentinstallkey.oc1.**********************).
+      Instance has been assigned to JMS fleet name-of-fleet-******-**** (ocid1.jmsfleet.oc1.iad.******************).
+      A copy of this installation log can be found at /var/log/oracle/JMSInstallScript/JMSInstallScriptLogs-**************.log
+      Removing the temporary files.
+      The JMS installer and configuration file can be removed from the machine.
+      /var/log/oracle/JMSInstallScript/JMSInstallerLogs-*******.log contains the install log.
+      Agent is successfully installed and is running.
+
       ```
 
 **On Windows (on OCI)**
 
-1. Use the **installation script** for Windows downloaded.
+1. Use the downloaded **Agent Installer** `jms_setup_v8.0.46_windows-x86_64.zip` and **configuration file** `JMS_agent_configuration.rsp` for Windows. Enter the following command to transfer the script to the remote Managed Instance.
 
 2. Run Windows Powershell as administrator.
 
@@ -169,39 +176,36 @@ This task is for the installation of Management Agent in a non-OCI host(e.g. on-
 
 **On Linux (Non-OCI Host)**
 
-1. Use the **installation script** for Linux downloaded or enter the following command to transfer the script to the remote Managed Instance.
+1.  Use the downloaded **Agent Installer** `jms_setup_v8.0.46_linux_rhel-x86_64.tar.gz` and **configuration file** `JMS_agent_configuration.rsp` for Linux.
 
     ```
     <copy>
-    scp -i <your-private-key-file> <path-to-installation-script> <username>@<x.x.x.x>:<copy-to-path>
+    scp -r -i <path-to-private-key/your-private-key-file> <path-mgmt-agent-installer/your-mgmt-agent-installer> <path-agent-configuration/JMS_agent_configuration.rsp> <username>@<x.x.x.x>:<copy-to-path>
     </copy>
     ```
-2. Use the **management agent** software for linux downloaded or enter the following command to transfer the script to the remote instance. Both the **management agent** software and the **installation script** must be placed in the same directory.
+2. Connect to your instance using SSH.
+
+3. Navigate to the directory containing the agent installer files using the cd command. There is a `README.txt` in the folder. Read the `README.txt` for more details on installing the Managment Agent. 
+
+4. There is a `installJMSAgent.sh` shell script in the folder. Run the shell script using the following command.
+
 
     ```
     <copy>
-    scp -i <your-private-key-file> <path-to-management-agent-software> <username>@<x.x.x.x>:<copy-to-path>
+    sudo ./installJMSAgent.sh
     </copy>
     ```
-3. Connect to your instance using SSH.
-
-4. Enter the following command to run the installation script. The installation may take some time to complete.
-
-     ```
-     <copy>
-     sudo bash <copy-to-path>/<installation-script-name>.sh
-     </copy>
-     ```
 
 5. If installation is successful, you'll see a message similar to the following:
 
      ```
      ...
-     Management Agent installation has been completed.
-     Management Agent plugin 'Java Management Service' installation has been completed.
-     Management Agent plugin 'Java Usage Tracking' installation has been completed.
-     Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
-     Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
+      Oracle Cloud Agent plugin 'Oracle Java Management Service' installation has been 
+      completed.
+      Oracle Cloud Agent plugin 'Management Agent' installation has been completed.
+      Management Agent plugin 'Java Usage Tracking' installation has been completed.
+      Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
+      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
      ```
 
 **On Windows (Non-OCI Host)**
