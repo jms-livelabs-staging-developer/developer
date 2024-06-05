@@ -71,7 +71,7 @@ This task is for the installation of Management Agent in an OCI Host(OCI Compute
 
 ![image of installation script](images/SelectAgentInstaller.png)
 
-5. A compressed folder `jms_setup_v*.*.**_****-**_**.tar.gz` and a configuration file `JMS_agent_configuration.rsp`will be downloaded.
+5. A compressed folder `jms_setup_v<version-number>_<os-type>.tar.gz` and a configuration file `JMS_agent_configuration.rsp`will be downloaded.
 
 6. Click **Close**
 
@@ -79,13 +79,15 @@ This task is for the installation of Management Agent in an OCI Host(OCI Compute
 
 **On Linux (on OCI)**
 
-1. Use the downloaded **Agent Installer** `jms_setup_v8.0.46_linux_rhel-x86_64.tar.gz` and **configuration file** `JMS_agent_configuration.rsp` for Linux. Enter the following command to transfer the script to the remote Managed Instance.
+1. Use the downloaded **Agent Installer** `jms_setup_<version-number>_<os-type>.tar.gz` and **configuration file** `JMS_agent_configuration.rsp` for Linux. Enter the following command to transfer the **Agent Installer**  and **configuration file** to the remote Managed Instance. 
 
     ```
     <copy>
     scp -r -i <path-to-private-key/your-private-key-file> <path-mgmt-agent-installer/your-mgmt-agent-installer> <path-agent-configuration/JMS_agent_configuration.rsp> <username>@<x.x.x.x>:<copy-to-path>
     </copy>
     ```
+    Ensure that the **Agent Installer** and **configuration file** are in the **same folder.**
+
 2. Connect to your instance using SSH.
 
 3. Navigate to the directory containing the agent installer files using the cd command. There is a `README.txt` in the folder. Read the `README.txt` for more details on installing the Managment Agent. 
@@ -102,35 +104,29 @@ This task is for the installation of Management Agent in an OCI Host(OCI Compute
 
       ```
       ...
-      Agent was successfully registered using key name-of-fleet-******-**** (ocid1.managementagentinstallkey.oc1.**********************).
-      Instance has been assigned to JMS fleet name-of-fleet-******-**** (ocid1.jmsfleet.oc1.iad.******************).
-      A copy of this installation log can be found at /var/log/oracle/JMSInstallScript/JMSInstallScriptLogs-**************.log
+      Agent was successfully registered using key <name-of-fleet>(ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
+      Instance has been assigned to JMS fleet <name-of-fleet>(ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+      A copy of this installation log can be found at /<path-to-log>/JMSInstallScript/JMSInstallScriptLogs-<Datestamp>-<Timestamp>-<log-number>.log
       Removing the temporary files.
       The JMS installer and configuration file can be removed from the machine.
-      /var/log/oracle/JMSInstallScript/JMSInstallerLogs-*******.log contains the install log.
+      /<path-to-log>/JMSInstallScript/JMSInstallerLogs-<Datestamp>-<Timestamp>-<log-number>.log contains the install log.
       Agent is successfully installed and is running.
 
       ```
 
 **On Windows (on OCI)**
 
-1. Use the downloaded **Agent Installer** `jms_setup_v8.0.46_windows-x86_64.zip` and **configuration file** `JMS_agent_configuration.rsp` for Windows. Enter the following command to transfer the script to the remote Managed Instance.
+1. Use the downloaded **Agent Installer** `jms_setup_<version-number>_<os-type>.zip` and **configuration file** `JMS_agent_configuration.rsp` for Windows. Ensure that the **Agent Installer** and **configuration file** are in the **same folder.** 
 
 2. Run Windows Powershell as administrator.
 
-3. Enter the following command to unblock the installation script.
-
-    ```
-    <copy>
-    Unblock-File -Path <path-to-installation-script>
-    </copy>
-    ```
+3. Navigate to the directory containing the agent installer files using the cd command. There is a `README.txt` in the folder. Read the `README.txt` for more details on installing the Managment Agent. 
 
 4. Enter the following command to run the installation script. The installation may take some time to complete.
 
     ```
     <copy>
-    .\<path-to-installation-script>
+    .\installJMSAgent.ps1
     </copy>
     ```
 
@@ -138,11 +134,13 @@ This task is for the installation of Management Agent in an OCI Host(OCI Compute
 
       ```
       ...
-      Oracle Cloud Agent plugin 'Oracle Java Management Service' installation has been completed.
-      Oracle Cloud Agent plugin 'Management Agent' installation has been completed.
-      Management Agent plugin 'Java Usage Tracking' installation has been completed.
-      Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
-      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+      Agent was successfully registered using key <name-of-fleet>(ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
+      Instance has been assigned to JMS fleet <name-of-fleet>(ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+      A copy of this installation log can be found at /<path-to-log>/JMSInstallScript/JMSInstallScriptLogs-<Datestamp>-<Timestamp>-<log-number>.log
+      Removing the temporary files.
+      The JMS installer and configuration file can be removed from the machine.
+      /<path-to-log>/JMSInstallScript/JMSInstallerLogs-<Datestamp>-<Timestamp>-<log-number>.log contains the install log.
+      Agent is successfully installed and is running.
       ```
 
 ## Task 2: Install Management Agent on a non-OCI Host
@@ -176,7 +174,7 @@ This task is for the installation of Management Agent in a non-OCI host(e.g. on-
 
 **On Linux (Non-OCI Host)**
 
-1.  Use the downloaded **Agent Installer** `jms_setup_v8.0.46_linux_rhel-x86_64.tar.gz` and **configuration file** `JMS_agent_configuration.rsp` for Linux.
+1.  Use the downloaded **Agent Installer** `jms_setup_<version-number>_<os-type>.tar.gz` and **configuration file** `JMS_agent_configuration.rsp` for Linux. Enter the following command to transfer the script to the remote Managed Instance. Ensure that the **Agent Installer** and **configuration file** are in the **same folder.**
 
     ```
     <copy>
@@ -200,84 +198,113 @@ This task is for the installation of Management Agent in a non-OCI host(e.g. on-
 
      ```
      ...
-      Oracle Cloud Agent plugin 'Oracle Java Management Service' installation has been 
-      completed.
-      Oracle Cloud Agent plugin 'Management Agent' installation has been completed.
-      Management Agent plugin 'Java Usage Tracking' installation has been completed.
-      Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
-      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+      Agent was successfully registered using key <name-of-fleet>(ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
+      Instance has been assigned to JMS fleet <name-of-fleet>(ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+      A copy of this installation log can be found at /<path-to-log>/JMSInstallScript/JMSInstallScriptLogs-<Datestamp>-<Timestamp>-<log-number>.log
+      Removing the temporary files.
+      The JMS installer and configuration file can be removed from the machine.
+      /<path-to-log>/JMSInstallScript/JMSInstallerLogs-<Datestamp>-<Timestamp>-<log-number>.log contains the install log.
+      Agent is successfully installed and is running.
      ```
 
 **On Windows (Non-OCI Host)**
 
-1. Use the **installation script** for Windows downloaded.
+There are two ways to install the agent:
 
-2. Use the **management agent** software for Windows downloaded. Both the **management agent** software and the **installation script** must be placed in the same directory.
+**Option 1: Using the Graphical User Interface (GUI)**
 
-3. Run Windows Powershell as administrator.
+1. Use the downloaded **Agent Installer** `jms_setup_<version-number>_<os-type>.zip` and **configuration file** `JMS_agent_configuration.rsp` for Windows. Ensure that the **Agent Installer** and **configuration file** are in the **same folder.**
 
-4. Enter the following command to unblock the installation script.
+2. Righ-click the `installJMSAgent.ps1` file in the directory containing the installer files.
 
-    ```
-    <copy>
-    Unblock-File -Path <path-to-installation-script>
-    </copy>
-    ```
+3. Select the option **"Run with Powershell"**.
 
-5. To ensure you have the correct permissions to run the script, type Set-ExecutionPolicy RemoteSigned and answer A.
+    ![Run with Powershell](images/RunWithPowershell.png)
+
+4. An "Execution Policy Change" powershell terminal will pop up. Enter `A`, i.e. "Yes to All".
+
+    ![ExecutionPolicyChange](images/ExecutionPolicyChange.png)
+
+5. An "User Account Control" window will pop up. Click **"Yes"**. The installation will then start.
+
+    ![UserAccountControl](images/UserAccountControl.png)
+
+6. If installation is successful, you'll see a message similar to the following:
+
+     ```
+     ...
+     Agent was successfully registered using key <name-of-fleet>(ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
+     Instance has been assigned to JMS fleet <name-of-fleet>(ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+     A copy of this installation log can be found at /<path-to-log>/JMSInstallScript/JMSInstallScriptLogs-<Datestamp>-<Timestamp>-<log-number>.log
+     Removing the temporary files.
+     The JMS installer and configuration file can be removed from the machine.
+     /<path-to-log>/JMSInstallScript/JMSInstallerLogs-<Datestamp>-<Timestamp>-<log-number>.log contains the install log.
+     Agent is successfully installed and is running.
+     ```
+
+**Option 2: Using the Command Line**
+
+1. Use the downloaded **Agent Installer** `jms_setup_<version-number>_<os-type>.zip` and **configuration file** `JMS_agent_configuration.rsp` for Windows. Ensure that the **Agent Installer** and **configuration file** are in the **same folder.**
+
+2. Run Windows Powershell as administrator.
+
+3. Navigate to the directory containing the agent installer files using the cd command. There is a `README.txt` in the folder. Read the `README.txt` for more details on installing the Managment Agent.
+
+
+4. To ensure you have the correct permissions to run the script, type Set-ExecutionPolicy RemoteSigned and answer A.
 
     It should look similar to the following:
     ![setting execution policy in windows powershell](images/set-execution-policy.png)
 
-6. Enter the following command to run the installation script. The installation may take some time to complete.
+5. Enter the following command to run the installation script. The installation may take some time to complete.
 
     ```
     <copy>
-    .\<path-to-installation-script>
+    .\installJMSAgent.ps1
     </copy>
     ```
 
-7. If installation is successful, you'll see a message similar to the following:
+6. If installation is successful, you'll see a message similar to the following:
 
      ```
      ...
-     Management Agent installation has been completed.
-     Management Agent plugin 'Java Management Service' installation has been completed.
-     Management Agent plugin 'Java Usage Tracking' installation has been completed.
-     Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
-     Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
+     Agent was successfully registered using key <name-of-fleet>(ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
+     Instance has been assigned to JMS fleet <name-of-fleet>(ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+     A copy of this installation log can be found at /<path-to-log>/JMSInstallScript/JMSInstallScriptLogs-<Datestamp>-<Timestamp>-<log-number>.log
+     Removing the temporary files.
+     The JMS installer and configuration file can be removed from the machine.
+     /<path-to-log>/JMSInstallScript/JMSInstallerLogs-<Datestamp>-<Timestamp>-<log-number>.log contains the install log.
+     Agent is successfully installed and is running.
      ```
 
 **On MacOS (Non-OCI Host)**
 
 > **Note:** Advanced features are not yet supported for mac.
 
-1. Use the **installation script** for Mac downloaded.
+1. Use the downloaded **Agent Installer** `jms_setup_<version-number>_<os-type>.tar.gz` and **configuration file** `JMS_agent_configuration.rsp` for MacOS. Ensure that the **Agent Installer** and **configuration file** are in the **same folder.**
 
-2. Use the **management agent** **software** for Mac downloaded.
+2. Navigate to the directory containing the agent installer files using the cd command. There is a `README.txt` in the folder. Read the `README.txt` for more details on installing the Managment Agent.
 
-3. Put the **management agent** **software** and the **installation script** in the same directory.
-
-4. Open terminal and run the following command.
+3. Open terminal and run the following command.
 
    ```
    <copy>
-   sudo bash <path-to-installation-script>
+   sudo ./installJMSAgent.sh
    </copy>
    ```
 
-5. If installation is successful, you'll see a message similar to the following:
+4. If installation is successful, you'll see a message similar to the following:
 
    ```
-   Management Agent installation has been completed with 'Java Usage Tracking service plugin (Service.plugin.jms)'
-   JMS basic features will be enabled on this instance.
-   Management Agent installation has been completed with 'Java Management service plugin (Service.plugin.jm)'
-   JMS advanced features can be enabled on this instanceManagement Agent was successfully registered using key key-name (key-id).
-   
-   Instance has been assigned to fleet-name (fleet-id)
-   
-   A copy of this installation log can be found at path-to-logs
+   Agent was successfully registered using key <name-of-fleet>(ocid1.managementagentinstallkey.oc1.<region>.<some ocid hash>).
+   Instance has been assigned to JMS fleet <name-of-fleet>(ocid1.jmsfleet.oc1.<region>.<some ocid hash>).
+   A copy of this installation log can be found at /<path-to-log>/JMSInstallScript/JMSInstallScriptLogs-<Datestamp>-<Timestamp>-<log-number>.log
+   Removing the temporary files.
+   The JMS installer and configuration file can be removed from the machine.
+   /<path-to-log>/JMSInstallScript/JMSInstallerLogs-<Datestamp>-<Timestamp>-<log-number>.log contains the install log.
+   Agent is successfully installed and is running.
    ```
+
 
 ## Task 3: Verify Management Agent Installation
 
