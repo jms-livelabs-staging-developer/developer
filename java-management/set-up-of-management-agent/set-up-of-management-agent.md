@@ -65,17 +65,17 @@ This task is for the installation of Management Agent in an OCI Host(OCI Compute
 2. Select the Fleet created in [Lab 3](?lab=setup-a-fleet).
 3. Click **Download Agent Installer**
 
-![image of clicking configuration](images/Download-Agent-Installer.png)
+![image of clicking configuration](images/download-agent-installer.png)
 
 4. Scroll down and select an appropriate version of the **Agent Installer** according to the operating system on your instance(s).
 
-![image of installation script](images/Select-Agent-Installer.png)
+![image of installation script](images/select-agent-installer.png)
 
 5. A compressed folder `jms_setup_v<version-number>_<os-type>.tar.gz` and a configuration file `JMS_agent_configuration.rsp`will be downloaded.
 
 6. Click **Close**
 
-![image of click close](images/Agent-Installer_close.png)
+![image of click close](images/agent-installer-close.png)
 
 **On Linux (on OCI)**
 
@@ -161,16 +161,16 @@ This task is for the installation of Management Agent in a non-OCI host(e.g. on-
 2. Select the Fleet created in [Lab 3](?lab=setup-a-fleet).
 3. Click **Download Agent Installer**
 
-![image of clicking configuration](images/Download-Agent-Installer.png)
+![image of clicking configuration](images/download-agent-installer.png)
 
 4. Select an appropriate version of the **Agent Installer** according to the operating system on your instance(s).
 
-![image of installation script](images/Select-Agent-Installer.png)
+![image of installation script](images/select-agent-installer.png)
 
 
 5. Click **Close**
 
-![image of click close](images/Agent-Installer-close.png)
+![image of click close](images/agent-installer-close.png)
 
 **On Linux (Non-OCI Host)**
 
