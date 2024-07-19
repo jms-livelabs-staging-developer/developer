@@ -219,15 +219,15 @@ There are two ways to install the agent:
 
 3. Select the option **"Run with Powershell"**.
 
-    ![Run with Powershell](images/RunWithPowershell.png)
+    ![Run with Powershell](images/run-with-powershell.png)
 
 4. An "Execution Policy Change" powershell terminal will pop up. Enter `A`, i.e. "Yes to All".
 
-    ![ExecutionPolicyChange](images/ExecutionPolicyChange.png)
+    ![ExecutionPolicyChange](images/execution-policy-change.png)
 
 5. An "User Account Control" window will pop up. Click **"Yes"**. The installation will then start.
 
-    ![UserAccountControl](images/UserAccountControl.png)
+    ![UserAccountControl](images/user-account-control.png)
 
 6. If installation is successful, you'll see a message similar to the following:
 
