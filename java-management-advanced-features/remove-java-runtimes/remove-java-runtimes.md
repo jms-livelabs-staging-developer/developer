@@ -26,7 +26,7 @@ In this lab, you will:
 
 ![image of console navigation to java management service](images/console-navigation-jms.png)
 
-2. Under the **Resources** menu, select **Java Runtimes**. You should see a list of the Java Runtimes that are currently in your Fleet.
+2. Under the menu panel, select **Java Runtimes**. You should see a list of the Java Runtimes that are currently in your Fleet.
 
 ![image of fleet details page](images/fleet-details-page.png)
 
@@ -42,12 +42,9 @@ In this lab, you will:
 
   ![image of delete runtime popup window](images/delete-runtime-popup-window.png)
 
-  If your request is submitted successfully, you should receive a notification in green as seen below:
-  ![image of submitted delete java runtime work request](images/delete-java-runtime-work-request-submitted.png)
-
 ## Task 2: Verify Java Runtime Deletion
 
-1. In the same **Java Management** page, under **Resources**, select **Work Requests**. You should see the Remove Java Runtime Work Request you submitted in Task 1. Click on the Work Request to view its details.
+1. In the same fleet details page, select **Work Requests** tab. You should see the Remove Java Runtime Work Request you submitted in Task 1. Click on the Work Request to view its details.
  ![image of work request summary page](images/work-request-summary-page.png)
 
 2. If your request has been accepted, the status will change to **In Progress**. It will take some time to complete.
@@ -73,4 +70,4 @@ In this lab, you will:
 ## Acknowledgements
 
 * **Author** - Xin Yi Tay, Java Management Service
-* **Last Updated By** - Siqi Liu, October 2023
+* **Last Updated By** - Hannah Wong, May 2025
