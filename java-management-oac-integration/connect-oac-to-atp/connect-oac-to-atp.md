@@ -1,4 +1,4 @@
-# Lab 7: Connect Oracle Analytics Cloud (OAC) to Autonomous AI Database
+# Lab 5: Connect Oracle Analytics Cloud (OAC) to Autonomous AI Database
 
 ## Introduction
 
